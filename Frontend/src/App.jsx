@@ -3,7 +3,8 @@ import './App.css'
 
 function App() {
 
-const url = "http://localhost:5400/test"
+// const url = "http://localhost:5400/test"
+  const url = "https://full-st-tack.vercel.app/test"
   const getInfo = () => {
     axios.get(url)
       .then((res) => {
