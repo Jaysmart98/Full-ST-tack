@@ -74,7 +74,7 @@ const usStates = [
     }
 ];
 
-    app.get('/api/states', (req, res) => {
+    app.get('/test', (req, res) => {
         res.send(usStates);
     });
 
