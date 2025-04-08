@@ -5,9 +5,9 @@ dotenv.config();
 const port = process.env.PORT || 5300;
 const cors = require('cors');
 const bodyParser = require('body-parser');
-app.use(express.json());
+app.use(express.json()); // post request
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors()); // Allow connection
 
 
 
@@ -78,6 +78,14 @@ const usStates = [
         res.send(usStates);
     });
 
+    app.post('/submit', (req,res) => {
+        console.log(req.body);
+        if (req.body) {
+            res.status(201).json({message: 'Form submitted succesfully'})
+        } else {
+            res.status(401).json({message: 'form not submitted'})
+        }
+    })
 
 
 app.listen(port, () => console.log(`Server started at port: ${port}`));
