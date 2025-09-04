@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+
+    <style>
+        body { font-family: sans-serif; padding: 20px; background-color: #f4f4f4; color: black;}
+        .ecommerce-container{ max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        input[type="text"] { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 0; border: none; border-radius: 4px; color: #fff; cursor: pointer; }
+        .add-btn { background-color: #061674; height: 40px;}
+        ul { list-style: none; padding: 0; color: black;}
+        li { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; }
+        li:last-child { border-bottom: none; }
+        .todo-item-info { flex-grow: 1; }
+        .todo-item-info h3 { margin: 0 0 5px 0; color: #555; }
+        .todo-item-info p { margin: 0; color: #777; }
+        .btn-group { display: flex; gap: 5px; }
+        .edit-btn { background-color: rgb(194, 110, 110); text-decoration: none; width: 70px; height: 35px; color: black; border: 1px solid black; border-radius: 5px; justify-items: center; align-content: center; text-align: center;}
+        .delete-btn { background-color: #db6300; text-decoration: none; width: 70px; height: 35px; color: white; border: 1px solid black; border-radius: 5px; justify-items: center; align-content: center; text-align: center;}
+        .edit-btn:hover { background-color: #555; color: white; }
+        .delete-btn:hover { background-color: #c82333; }
+        #checkbox { width: 20px; height: 20px; margin-right: 10px; }
+        .todo-item-info { display: flex; align-items: center; }
+        .todo-item-info h3 { margin-right: 20px; }
+        .todo-item-info p { font-size: 14px; color: #888; }
+    </style>
+
+</head>
+<body>
+    <div class="ecommerce-container">
+        <h1>ECommerce Site</h1>
+        <form action="/ecommerce" method="POST">
+            <input type="text" name="product" placeholder="product" required>
+            <input type="text" name="quantity" placeholder="quantity" required>
+            <input type="text" name="calculator" placeholder="total" required>
+            <input type="text" name="price" placeholder="price" required>
+            <button type="submit" class="add-btn">Add To Cart</button>
+        </form>
+
+
+        <ul>
+                <% if (cart.length === 0) { %>
+                    <li>No item added yet!</li>
+                <% } else { %>
+                    <% cart.forEach((item, index) => { %>
+                        <li>
+                            <div class="todo-item-info">
+                                <input type="checkbox" name="" id="checkbox">
+                                <h3><%= item.product %></h3>
+                                <h3><%= item.quantity %></h3>
+                                <h3><%= item.calculator %></h3>
+                                <h3><%= item.price %></h3>
+                            </div>
+    
+                            <div class="btn-group">
+                                <a href="/editEcommerce/<%= item._id %>" class="edit-btn">Edit</a>
+                                
+                                <form action="/delete" method="POST">
+                                    <input type="hidden" name="id" value="<%= item._id%>">
+                                    <button type="submit" class="delete-btn">Delete</button>
+                                </form>
+                            </div>
+                        </li>
+                    <% }); %>
+                <% } %>
+            </ul>
+    </div>
+</body>
+</html>
