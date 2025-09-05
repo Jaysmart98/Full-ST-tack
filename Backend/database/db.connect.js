@@ -9,7 +9,7 @@ const connect = async() => {
     try{
         const connection = await mongoose.connect(uri)
         if(connection){
-            console.log("database connected successfully (._.)");
+            console.log("database connected successfully (>__<) ");
         }
     } catch (error) {
         console.log(error);
