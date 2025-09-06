@@ -35,16 +35,15 @@ const SignUp = () => {
     }
 
   return (
-    <>
-     <div className='w-50 mx-auto py-3 px-3'>
-        <h1 className='text-center mt-3'>Sign Up</h1>
-     <Input sty={"form-control mt-3"} name={"username"} type={"username"} placeholder={"Enter a Username"} label={"Username"} required={true} onChange={handleinputchange}/>
-     <Input sty={"form-control mt-3"} name={"email"} type={"email"} placeholder={"Enter your email"} label={"Email"} required={true} onChange={handleinputchange}/>
-     <Input sty={"form-control mt-3"} name={"password"} type={"password"} placeholder={"Create a Password"} label={"Password"} required={true} onChange={handleinputchange}/>
-     <Button className="btn btn-primary mt-3" bgColor={"Blue"} colorParams={"#ffff"} text={"Sign Up"} setMint={""}/>
-     </div>
-
-    </>
+    <div>
+    <div className='w-5 mx-auto py-3 px-5'>
+      <h1 className='text-center mt-3'>Sign up</h1>
+      <Input name={"username"} placeholder={"Enter a Username"} type={"text"} style={"form-control mt-3"} onChange={handleinputchange}/>
+      <Input name={"email"} placeholder={"Enter your Email"} type={"email"} style={"form-control mt-3"} onChange={handleinputchange}/>
+      <Input name={"username"} placeholder={"Create your Password"} type={"password"} style={"form-control mt-3"} onChange={handleinputchange}/>
+      <Button text={"Sign Up"} style={"btn btn-primary mt-3"} onClick={Register}/>
+    </div>
+  </div>
   )
 }
 
