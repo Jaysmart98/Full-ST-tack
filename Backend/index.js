@@ -1,12 +1,11 @@
 const express = require("express")
 const app = express()
-const ejs = require("ejs")
 require('dotenv').config()
 const connect  = require("./database/db.connect")
-const {userModel, usersTodo, usersCommerce} = require("./model/user.model")
+// const {userModel, usersTodo, usersCommerce} = require("./model/user.model")
 const userrouter  = require("./route/user.route")
  const cors = require("cors")
- app.set("view engine", "ejs")
+//  app.set("view engine", "ejs")
 
 
 
@@ -16,7 +15,7 @@ const userrouter  = require("./route/user.route")
 const port = process.env.PORT || 8007 
 
 
-let alltodo = [];
+// let alltodo = [];
 currentUser = ""
 
 app.use(cors({origin:"*"}))

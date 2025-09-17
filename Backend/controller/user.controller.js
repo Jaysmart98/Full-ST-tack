@@ -43,7 +43,7 @@ const postsignup = async (req, res) => {
             return res.redirect("/signup");
        } 
 
-       const hashedPassword = await bycrypt.hash(password, 10)
+       const hashedPassword = await bcrypt.hash(password, 10)
        console.log(hashedPassword)
 
        
